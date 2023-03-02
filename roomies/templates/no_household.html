@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    No household
+{% endblock %}
+
+{% block main %}
+    <h1>Welcome to Roomies!</h1>
+    <p>You're not currently a member of any household. What would you like to do?</p>
+    <form action="/no_household" method="post">
+        <label for="action">Select an action:</label>
+        <select id="action" name="action">
+            <option value="create">Create a new household</option>
+            <option value="join">Join an existing household</option>
+        </select>
+        <br><br>
+        <label for="household">Household name:</label>
+        <input type="text" id="household" name="household">
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Final project: index
+{% endblock %}
+
+{% block main %}
+<h1 class="logo">Roomies</h1>
+<h2 class="slogan">Let's connect</h2>
+<div>
+    <p class="indextext">The roomies app lets you connect with your household like never before</p>
+</div>
+    <div class="grid-container">
+        <div class="grid-item box1">
+            <h3>Shared shopping list</h3>
+            <img src="/media/grocery.gif" alt="Image 1">
+        </div>
+        <div class="grid-item box2">
+            <h3>Aligning your agendas</h3>
+            <img src="/media/agenda.gif" alt="Image 2">
+        </div>
+        <div class="grid-item box3">
+            <h3>Specify common expenses</h3>
+            <img src="/media/expenses.gif" alt="Image 3">
+        </div>
+        <div class="grid-item box4">
+            <h3>Connect with other households</h3>
+            <img src="/media/connect.gif" alt="Image 4">
+        </div>
+    </div>
+<div>
+    <p class="indextext">Register now to make your household run as smoothly as ever!</p>
+</div>
+
+{% endblock %}
