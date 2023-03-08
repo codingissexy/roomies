@@ -163,6 +163,9 @@ def home():
     with sqlite3.connect("roomies.db") as conn:
         row = conn.execute("SELECT household FROM users WHERE id = ?", (user_id,)).fetchone()
         household = row[0] if row else None
+    
+    # Configure session for household
+    session["household"] = household
 
     # Render the appropriate template based on whether the user is part of a household or not
     if household:
@@ -209,21 +212,32 @@ def no_household():
 
         else:
             return error("Invalid action selected", 400)
+        
+        # Remember household that is logged in
+        with sqlite3.connect('roomies.db') as conn:
+            cursor = conn.execute("SELECT household FROM users WHERE id = ?", (user,))
+            rows = cursor.fetchall
+        session["household"] = rows[0][0]
 
         return redirect("/household")
 
     # User reached route via GET (as by clicking a link or via redirect)
     else:
-        return render_template("no_home_no_household.html")
+        return render_template("no_household.html")
 
-@app.route('/household')
+@app.route("/household")
 @login_required
 @in_household_required
 def household():
-
     user_id = session.get("user_id")
 
-    return render_template('household.html')
+    return render_template("household.html")
+
+@app.route("/shopping")
+@in_household_required
+def shopping():
+    return render_template("shopping.html")
+
 
 # Enable debug mode so changes are visible immediatly
 if __name__ == '__main__':

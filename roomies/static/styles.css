@@ -76,6 +76,14 @@ body{
 .indextext{
     font-size: 20px;
     font-weight: bold;
+    padding: 30px;
+}
+.registertext{
+    text-align: center;
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 300px;
 }
 
 /* Title and welcome homepage */
@@ -92,7 +100,15 @@ body{
     font-family: "Marker Felt", "fantasy";
 }
 
-img {
-    width: 200px;
-    height: 150px;
+img{
+    width: 500px;
+    height: 300x;
+}
+
+/* features pages */
+.ftitle{
+    color: steelblue;
+    text-align: center;
+    font-size: 30px;
+    font-family: "Apple Chancery", "cursive";
 }

@@ -1,6 +1,6 @@
 import urllib.parse
 
-from flask import redirect, render_template, request, session
+from flask import redirect, render_template, request, session, flash
 from functools import wraps
 
 
@@ -35,7 +35,8 @@ def login_required(f):
 def in_household_required(func):
     @wraps(func)
     def decorated_function(*args, **kwargs):
-        if 'household' not in session:
-            return redirect("/no_household")
+        if "household" not in session:
+            flash("You need to join or create a household first!")
+            return redirect("/homepage")
         return func(*args, **kwargs)
     return decorated_function
